@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<!-- Ann Nassour -->
+<!-- 8/03/15 -->
+<!-- Example of JavaScript that uses mouseOver and onclick. -->
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Click On Images</title>
+      <style = "text/css">
+         #topbig img {   width: 200px;   height: 200px;   float: left;   position:absolute;   left: 1px;   top: 1px; }
+         #imgs img {   border: 0px;   width: 105px;   height: 105px;   padding: 5px;   float: bottom; }
+      </style>
+   </head>
+   <body>
+      <div id = "topbig">
+        <img id="bigimg" src="./images/apple.jpg" alt="Apple logo">
+      </div>
+      <script language="javascript">
+        var origimg = new Image();
+        origimg.src = "./images/apple.jpg";
+        var BigGuy = document.getElementById("bigimg");  // pointer to large image
+        
+        // Make big image the same as what the cursor is over
+        function MouseRollover(MyImage) {
+            BigGuy.src = origimg.src;
+        }
+        function MouseOut(MyImage) {
+            BigGuy.src = MyImage.src;
+        }
+        function ClickIt(MyImage) {
+            if (MyImage.src.localeCompare("./images/apple.jpg")) {
+               window.open( "http://apple.com");
+            } else if (MyImage.src.localeCompare("./images/flickr.jpg")) {
+               window.open( "http://flickr.com");
+            } else if (MyImage.src.localeCompare("./images/google.jpg")) {
+               window.open( "http://google.com");
+            } else if (MyImage.src.localeCompare("./images/twitter.jpg")) {
+               window.open( "http://twitter.com");            
+            } else {
+               window.open( "http://instagram.com");
+            }
+        }
+      </script>
+        
+        <div id = "main">
+           </br></br></br></br></br></br></br></br></br></br></br></br>
+        </div>
+        <div id = "imgs">
+           <!--The rollover image displays here.-->
+           <img id="appleimg" src="./images/apple.jpg" alt="Apple button"
+              onMouseOver="MouseRollover(this)" onMouseOut="MouseOut(this)" onClick="ClickIt(this)" />
+           <img id="flickrimg" src="./images/flickr.jpg" alt="Flickr button"
+              onMouseOver="MouseRollover(this)" onMouseOut="MouseOut(this)" onClick="ClickIt(this)" />
+           <img id="Googleimg" src="./images/google.jpg" alt="Google button"
+              onMouseOver="MouseRollover(this)" onMouseOut="MouseOut(this)" onClick="ClickIt(this)" />
+           <img id="Twitterimg" src="./images/twitter.jpg" alt="Twitter button"
+                          onMouseOver="MouseRollover(this)" onMouseOut="MouseOut(this)" onClick="ClickIt(this)" />
+           <img id="Instagimg" src="./images/instagram.jpg" alt="Instagram button"
+              onMouseOver="MouseRollover(this)" onMouseOut="MouseOut(this)" onClick="ClickIt(this)" />   
+        </div>
+  </body>
+</html>
